@@ -1,6 +1,20 @@
 name: Cypress tests for CI/CD
 on: [push, workflow_dispatch]
+env:
+  USERNAME: ${{ secrets.USERNAME }} 
+  PASSWORD: ${{ secrets.PASSWORD }} 
+  
 jobs:
+ print-envs:
+    name: Print environment variables
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Print environment variables
+        run: |
+          echo CYPRESS_USERNAME: $USERNAME
+          echo CYPRESS_USERNAME: $PASSWORD
+          
  cypress-run:
     runs-on: ubuntu-latest
     steps:
@@ -11,11 +25,8 @@ jobs:
            run: npm install
            
          - name: Cypress run
-           env:
-             username: ${{ secrets.USERNAME }} 
-             password: ${{ secrets.PASSWORD }} 
            uses: cypress-io/github-action@v6
            with:
-             start: CYPRESS_USERNAME='$username' CYPRESS_PASSWORD='$password' npx cypress run --headless
+             start: CYPRESS_USERNAME=$USERNAME CYPRESS_PASSWORD=$PASSWORD npx cypress run --headless
              browser: chrome
                
