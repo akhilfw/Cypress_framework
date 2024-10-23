@@ -4,17 +4,7 @@ env:
   CYPRESS_USERNAME: ${{ secrets.USERNAME }} 
   CYPRESS_PASSWORD: ${{ secrets.PASSWORD }} 
   
-jobs:
- print-envs:
-    name: Print environment variables
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Print environment variables
-        run: |
-          echo CYPRESS_USERNAME: $CYPRESS_USERNAME
-          echo CYPRESS_PASSWORD: $CYPRESS_PASSWORD
-          
+jobs:     
  cypress-run:
     runs-on: ubuntu-latest
     steps:
