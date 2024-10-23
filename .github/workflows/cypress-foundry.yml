@@ -8,8 +8,11 @@ jobs:
            uses: actions/checkout@v3
            
          - name: Cypress run
+           env:
+             username: ${{ secrets.CYPRESS_USERNAME }} 
+             password: ${{ secrets.CYPRESS_PASSWORD }} 
            uses: cypress-io/github-action@v6
            with:
-             start: CYPRESS_USERNAME='1724345481.richmond@inup97z9.mailosaur.net' CYPRESS_PASSWORD='Password@1' npx cypress run --headless
+             start: CYPRESS_USERNAME=username CYPRESS_PASSWORD=password npx cypress run --headless
              browser: chrome
                
