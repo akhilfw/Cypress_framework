@@ -9,11 +9,10 @@ jobs:
            
          - name: Cypress run
            env:
-             username: ${{ secrets.CYPRESS_USERNAME}} 
-             password: ${{ secrets.CYPRESS_PASSWORD}} 
+             username: ${{ secrets.CYPRESS_USERNAME }} 
+             password: ${{ secrets.CYPRESS_PASSWORD }} 
            uses: cypress-io/github-action@v6
            with:
-             run: npm install
              start: CYPRESS_USERNAME=$username CYPRESS_PASSWORD=$password npx cypress run 
              browser: chrome
                
