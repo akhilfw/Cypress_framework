@@ -10,6 +10,6 @@ jobs:
          - name: Cypress run
            uses: cypress-io/github-action@v6
            with:
-             start: CYPRESS_USERNAME=${{ secrets.CYPRESS_USERNAME }} CYPRESS_PASSWORD=${{ secrets.CYPRESS_PASSWORD }} npx cypress run --headless
+             start: CYPRESS_USERNAME='1724345481.richmond@inup97z9.mailosaur.net' CYPRESS_PASSWORD='Password@1' npx cypress run --headless
              browser: chrome
                
