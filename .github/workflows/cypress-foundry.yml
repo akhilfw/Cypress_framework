@@ -13,7 +13,7 @@ jobs:
       - name: Print environment variables
         run: |
           echo CYPRESS_USERNAME: $USERNAME
-          echo CYPRESS_USERNAME: $PASSWORD
+          echo CYPRESS_PASSWORD: $PASSWORD
           
  cypress-run:
     runs-on: ubuntu-latest
@@ -27,6 +27,6 @@ jobs:
          - name: Cypress run
            uses: cypress-io/github-action@v6
            with:
-             start: CYPRESS_USERNAME=$USERNAME CYPRESS_PASSWORD=$PASSWORD npx cypress run --headless
+             start: CYPRESS_USERNAME=`$USERNAME` CYPRESS_PASSWORD=`$PASSWORD` npx cypress run --headless
              browser: chrome
                
