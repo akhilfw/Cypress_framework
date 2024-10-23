@@ -6,13 +6,17 @@ jobs:
     steps:
          - name: Checkout
            uses: actions/checkout@v3
+
+         - name: Npm Updates
+           with:
+              start: npm install
            
          - name: Cypress run
            env:
-             username: ${{ secrets.CYPRESS_USERNAME }} 
-             password: ${{ secrets.CYPRESS_PASSWORD }} 
+             username: ${{ secrets.USERNAME }} 
+             password: ${{ secrets.PASSWORD }} 
            uses: cypress-io/github-action@v6
            with:
-             start: CYPRESS_USERNAME=$username CYPRESS_PASSWORD=$password npx cypress run --headless
+             start: CYPRESS_USERNAME='$username' CYPRESS_PASSWORD='$password' npx cypress run --headless
              browser: chrome
                
